@@ -16,9 +16,10 @@ public class Main {
         long forkStart = System.currentTimeMillis();
         Long forkJoinSum = forkJoinPool.invoke(recursiveSum);
         long forkEnd = System.currentTimeMillis();
+        int numOfThreads = 4;
         System.out.println("ForkJoin: " + forkJoinSum + ", time: " + (forkEnd - forkStart));
 
-        ExecutorServiceSum executorServiceSum = new ExecutorServiceSum(nums, 4);
+        ExecutorServiceSum executorServiceSum = new ExecutorServiceSum(nums, numOfThreads);
         long executorStart = System.currentTimeMillis();
         long sum = executorServiceSum.calculateListSum();
         long executorEnd = System.currentTimeMillis();
